@@ -9,7 +9,7 @@ TopOfStack = -1
 
 def IsEmpty():
     global Stack, TopOfStack
-    return TopOfStack
+    return TopOfStack == -1
     
 def IsFull():
     global Stack, TopOfStack
@@ -32,6 +32,7 @@ def Pop():
     if IsEmpty():
         return -1
     item = Stack[TopOfStack]
+    Stack[TopOfStack] = -1
     TopOfStack -= 1
     return item
 
@@ -58,4 +59,5 @@ def ReverseWord(Word):
     reversed_word = ""
     while not IsEmpty():
         reversed_word += str(Pop())
+        
     return reversed_word
